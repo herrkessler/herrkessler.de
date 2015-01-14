@@ -1,0 +1,189 @@
+.cloud-wrapper
+  position: absolute
+  &.one
+    top: 30px
+    left: 40px
+    .cloud
+      +animation-delay(2s)
+    .raindrop
+      @for $i from 1 to 6
+        &:nth-child(#{$i})
+          +animation-delay(2 + $i/4 + s)
+  &.two
+    top: 60px
+    left: 180px
+    .cloud
+      +animation-delay(2.3s)
+    .stroke
+      +animation-delay(2.3s)
+    .raindrop
+      @for $i from 1 to 6
+        &:nth-child(#{$i})
+          +animation-delay(2.3 + $i/4 + s)
+  &.three
+    top: 200px
+    left: 100px
+    .cloud
+      +animation-delay(3.4s)
+    .raindrop
+      @for $i from 1 to 6
+        &:nth-child(#{$i})
+          +animation-delay(3.4 + $i/4 + s)
+  &.four
+    top: 220px
+    left: 230px
+    .cloud
+      +animation-delay(1.5s)
+    .stroke
+      +animation-delay(1.5s)
+    .raindrop
+      @for $i from 1 to 6
+        &:nth-child(#{$i})
+          +animation-delay(1.5 + $i/4 + s)
+  &.five
+    top: 120px
+    left: 30px
+    .cloud
+      +animation-delay(3.8s)
+    .stroke
+      +animation-delay(3.8s)
+    .raindrop
+      @for $i from 1 to 6
+        &:nth-child(#{$i})
+          +animation-delay(3.8 + $i/4 + s)
+  &.six
+    top: 150px
+    left: 160px
+    .cloud
+      +animation-delay(3.4s)
+    .raindrop
+      @for $i from 1 to 6
+        &:nth-child(#{$i})
+          +animation-delay(3.4 + $i/4 + s)
+
+.cloud
+  width: 60px
+  height: 18px
+  background: #fff
+  border-radius: 20px
+  position: absolute
+  +animation(wobble 8s infinite linear)
+  z-index: 1
+  &:before , &:after
+    content: ''
+    position: absolute
+    background: #fff
+    width: 30px
+    height: 21px
+    top: -4.5px
+    left: 3px
+    border-radius: 30px
+    +transform(rotate(30deg))
+  &:after
+    width: 36px
+    height: 36px
+    top: -16.5px
+    left: auto
+    right: 14.5px
+
+
+.raindrop
+  background: #3D566E
+  width: 2px
+  height: 6px
+  position: absolute
+  top: 8px
+  +animation(rain 10s infinite ease-in)
+  &:nth-child(5)
+    left: 12px
+  &:nth-child(3)
+    left: 16px
+  &:nth-child(4)
+    left: 20px
+  &:nth-child(2)
+    left: 24px
+  &:first-child
+    left: 28px
+
+
+.stroke, .stroke-inner-one, .stroke-inner-two, .stroke-tip
+  position: absolute
+
+.stroke-inner-one, .stroke-inner-two
+  width: 2px
+  height: 10px
+  background: #FFFB02
+
+.stroke
+  width: 10px
+  height: 30px
+  left: 20px
+  top: 18px
+  opacity: 0
+  +animation(stroke 6s infinite ease-in)
+
+.stroke-inner-one
+  top: 0px
+  left: 5px
+  +transform(rotate(3deg))
+
+.stroke-inner-two
+  top: 6px
+  left: 7px
+  height: 5px
+  +transform(rotate(60deg))
+
+.stroke-tip
+  top: 8px
+  left: 6px
+  height: 0
+  width: 0
+  border-color: transparent
+  border-style: solid
+  border-width: 10px 2px
+  border-bottom-color: #FFFB02
+  +transform(rotate(183deg))
+  
+
+
++keyframes(wobble)
+  0%
+    +transform(translateX(0%))
+  15%
+    +transform(translateX(-25%) rotate(-5deg))
+  30% 
+    +transform(translateX(20%) rotate(3deg))
+  45%
+    +transform(translateX(-15%) rotate(-3deg))
+  60%
+    +transform(translateX(10%) rotate(2deg))
+  75%
+    +transform(translateX(-5%) rotate(-1deg))
+  100%
+    +transform(translateX(0%))
+
++keyframes(rain)
+  0%
+    +transform(translateY(0px))
+  20%
+    +transform(translatey(0px))
+  25%
+    +transform(translateY(20px))
+    opacity: 1
+  30%
+    +transform(translateY(25px))
+    opacity: 0
+  100%
+    opacity: 0
+
++keyframes(stroke)
+  0%
+    opacity: 0
+  64%
+    opacity: 0
+  65%
+    opacity: 1
+  70%
+    opacity: 0
+  100%
+    opacity: 0

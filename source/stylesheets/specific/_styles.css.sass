@@ -1,0 +1,66 @@
+// --------------------------
+// General Styles
+// --------------------------
+
+*
+  +box-sizing(border-box)
+
+body, html
+  width: 100%
+
+body
+  position: relative
+  line-height: 1.6
+  font-size: 100%
+  +sans(400)
+  color: white
+  background: #111
+
+p
+  &:not(:last-child)
+    margin-bottom: $default-margin/2
+
+h3
+  +serif(26px)
+  margin: 2% 0 5% 0
+
+h2
+  +serif(40px)
+  margin: 5% 0
+
+img
+  max-width: 100%
+
+// --------------------------
+// Special Styles
+// --------------------------
+
+#about, #impress
+  background: #333
+  color: white
+  width: 100%
+  padding: 5px 5%
+  span, a
+    display: inline-block
+    margin-right: 10px
+  +media(max-width 590px)
+    text-align: center
+    .divider
+      display: block
+      em
+        display: inline-block
+        +transform(rotate(90deg))
+
+#herrkessler
+  color: #2CC36B
+  font-size: 20px
+
+#lion
+  float: right
+  width: 30px
+  height: 30px
+  margin-top: 2.5px
+  background: url(image_path('lion.png')) center center no-repeat
+  background-size: cover
+  +media(max-width 640px)
+    display: none

@@ -1,0 +1,139 @@
+.satelite
+  padding: 5px
+  border-radius: 30px
+  background: silver
+  position: absolute
+  +animation(swing 1s ease-in-out)
+  +media(max-width 640px)
+    position: relative
+    float: left
+    margin:
+      right: 20px
+      bottom: 20px
+    top: 420px !important
+    left: 20px !important
+  &:before, &:after
+    position: absolute
+    content: ''
+    width: 1px
+    height: 60px
+    background: silver
+    +transform-origin(center center)
+  &:before
+    +transform(rotate(45deg))
+    left: 20px
+    top: -10px
+  &:after
+    +transform(rotate(-45deg))
+    left: 20px
+    top: -10px
+  &:hover
+    .explanation
+      opacity: 1
+  &.middleman
+    left: -70px
+    top: -90px
+    +animation-delay(2.2s)
+  &.yeoman
+    left: -120px
+    top: 0px
+    +animation-delay(2.8s)
+  &.js
+    left: -150px
+    top: 90px
+    +animation-delay(2.2s)
+  &.gulp
+    left: -150px
+    top: 180px
+    +animation-delay(4.1s)
+  &.ruby
+    left: -120px
+    top: 270px
+    +animation-delay(3.2s)
+  &.bourbon
+    left: -70px
+    top: 360px
+    +animation-delay(2s)
+  &.node
+    right: -70px
+    top: -90px
+    +animation-delay(2.4s)
+  &.grunt
+    right: -120px
+    top: 0px
+    +animation-delay(4.2s)
+  &.sinatra
+    right: -150px
+    top: 90px
+    +animation-delay(2.9s)
+  &.github
+    right: -150px
+    top: 180px
+    +media(max-width 640px)
+      clear: left
+    +animation-delay(3s)
+  &.twitter
+    right: -120px
+    top: 270px
+    +animation-delay(2.1s)
+  &.flickr
+    right: -70px
+    top: 360px
+    +animation-delay(3.5s)
+
+.explanation
+  position: absolute
+  padding: 5px 10px
+  background: #444
+  border-radius: 5px
+  white-space: nowrap
+  font-size: 12px
+  opacity: 0.5
+  +transition(all 0.2s ease-in-out)
+  &.left
+    left: -130px
+    top: 5px
+    &:after
+      content: ''
+      position: absolute
+      border-style: solid
+      border-width: 5px 0px 5px 5px
+      border-color: transparent #444
+      display: block
+      width: 0
+      z-index: 1
+      right: -5px
+      top: 10px
+  &.right
+    left: 60px
+    top: 5px
+    +media(max-width 640px)
+      left: -100px
+    &:after
+      content: ''
+      position: absolute
+      border-style: solid
+      border-width: 5px 5px 5px 0px
+      border-color: transparent #444
+      display: block
+      width: 0
+      z-index: 1
+      left: -5px
+      top: 10px
+      +media(max-width 640px)
+        right: -5px
+        border-width: 5px 0px 5px 5px
+        left: auto
+    
+
++keyframes(swing)
+  20%
+    +transform(rotate(25deg))
+  40%
+    +transform(rotate(-10deg))
+  60%
+    +transform(rotate(5deg))
+  80%
+    +transform(rotate(-5deg))
+  100%
+    +transform(rotate(0deg))

@@ -1,0 +1,36 @@
+$sprites: sprite-map("icon/*.png")
+$sprites2x: sprite-map("icon-retina/*.png")
+
+.icon
+  display: block
+  width: 30px
+  height: 30px
+  border-radius: 60px
+  position: relative
+  z-index: 1
+  +transition(all 0.2s ease-in)
+  &:hover
+    +transform(scale(1.2))
+    +animation(rotate 0.3s linear)
+  &:before, &:after
+    position: absolute
+    content: ''
+    height: 5px
+    width: 5px
+    background: gray
+    border-radius: 5px
+  &:before
+    bottom: -10px
+    left: -10px
+  &:after
+    right: -10px
+    top: -10px
+  @each $icon in $icons
+    &.#{$icon}
+      +retina-sprite(#{$icon})
+ 
++keyframes(rotate)
+  from
+    +transform(rotate(0deg))
+  to
+    +transform(rotate(360deg))

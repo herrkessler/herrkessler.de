@@ -1,0 +1,68 @@
+#sun
+  background: #FFFB02
+  width: 80px
+  height: 80px
+  position: absolute
+  text-align: center
+  z-index: -1
+  top: 0
+  left: 0
+  +animation(exchange-sun 10s infinite ease-in-out)
+  +animation-delay(2s)
+
+  &:before, &:after
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    height: 80px
+    width: 80px
+    background: #FFFB02
+  &:before
+    +transform(rotate(30deg))
+  &:after
+    +transform(rotate(60deg))
+
+#moon
+  position: absolute
+  width: 80px
+  height: 80px
+  border-radius: 40px
+  z-index: -1
+  bottom: 0
+  right: 0
+  background-color: #fefefe
+  +animation(exchange-moon 10s infinite ease-in-out)
+  +animation-delay(2s)
+  &:before, &:after
+    content: ''
+    position: absolute
+  &:after
+    top: 50%
+    left: 50%
+    width: 20px
+    height: 20px
+    border-radius: 20px
+    margin-left: 15px
+    margin-top: -20px
+    box-shadow: 10px 20px 0 -1px rgba(23, 32, 45, 0.2), -54px -17px 0 6px rgba(23, 32, 45, 0.2), -45px 18px 0 -6px rgba(23, 32, 45, 0.2), -25px 50px 0 6px rgba(23, 32, 45, 0.2), -15px -5px 0 4px rgba(23, 32, 45, 0.2)
+
++keyframes(exchange-sun) 
+  0%
+    +transform(translate(0, 0))
+  40%
+    +transform(translate(220px, 220px))
+  60%
+    +transform(translate(220px, 220px))
+  90%
+    +transform(translate(0px, 0px))
+
++keyframes(exchange-moon) 
+  0%
+    +transform(translate(0, 0))
+  40%
+    +transform(translate(-220px, -220px))
+  60%
+    +transform(translate(-220px, -220px))
+  90%
+    +transform(translate(0px, 0px))

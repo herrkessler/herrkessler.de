@@ -1,0 +1,89 @@
+#earth-wrapper
+  position: relative
+  width: 300px
+  margin: 300px auto
+  +media(max-width 640px)
+    margin: 100px auto 500px auto
+  +media(max-width 480px)
+    width: 280px
+
+#earth
+  width: 300px
+  height: 300px
+  border-radius: 200px
+  background: url(image_path('world.png')) center center no-repeat
+  background-size: 105% 105%
+  text-align: center
+  line-height: 300px
+  box-shadow: 0 0 10px 5px rgba(0,0,0,0.6)
+  +media(max-width 480px)
+    +size(280px)
+
+#shadow
+  width: 100%
+  height: 100%
+  +background-image(linear-gradient(135deg, transparent 0%, transparent 50%, rgba(black, 0.6) 50%, rgba(black, 0.6) 100%))
+  border-radius: 200px
+  +animation(rotate-earth 10s infinite ease-in-out)
+  +animation-delay(2s)
+
++keyframes(rotate-earth) 
+  0%
+    +transform(rotate(0))
+  30%
+    +transform(rotate(0))
+  40%
+    +transform(rotate(180deg))
+  65%
+    +transform(rotate(180deg))
+  80%
+    +transform(rotate(0))
+
+#hello
+  position: absolute
+  font-size: 12px
+  top: 70px
+  right: -75px
+  width: auto
+  height: 30px
+  +transform(rotate(3deg))
+  +media(max-width 480px)
+    z-index: 999
+    right: 27px
+    top: 57px
+  &:before
+    position: absolute
+    content: ''
+    left: -2px
+    top: -1px
+    width: 2px
+    height: 30px
+    background: gray
+  &:after
+    position: absolute
+    content: ''
+    background: #333
+    border-radius: 3px
+    width: 6px
+    height: 6px
+    left: -4px
+    top: 27px
+    z-index: -1
+  +media(max-width 480px)
+    &:before
+      left: 102px
+    &:after
+      left: 100px
+
+  span
+    float: left
+    height: 16px
+    line-height: 14px
+    display: inline-block
+    padding: 2px
+    background: white
+    &:first-child
+      color: orange
+      margin-left: 2px
+    &:last-child
+      color: green

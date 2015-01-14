@@ -1,0 +1,28 @@
+#stars-wrapper
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: -1
+  opacity: 0.8
+  overflow: hidden
+
+$colors: #635892 #BB6F93 #AC607C #694865 #C74031 #D1683C #E3A64D #C0C0C0
+
+.star
+  +star(30px)
+  position: absolute
+  @each $color in $colors 
+    $i: index($colors, $color)
+    &:nth-child(#{$i}), &:nth-child(#{$i*5}), &:nth-child(#{$i*3}), &:nth-child(#{$i*10}), &:nth-child(#{$i*2})
+      +star(30px, $color)
+      +animation(fadeOut #{$i}s ease-out infinite alternate forwards)
+      +animation-delay(#{$i}s)
+      opacity: 0.1
+
++keyframes(fadeOut)
+  from
+    opacity: 0.1
+  to
+    opacity: 1

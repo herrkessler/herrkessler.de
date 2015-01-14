@@ -1,0 +1,101 @@
+#mountains
+  width: 100%
+  height: 100px
+  overflow: hidden
+
+.mountain
+  position: relative
+  float: right
+  height: 0
+  width: 0
+  border-color: transparent
+  border-style: solid
+  @for $i from 1 to 30
+    &:nth-child(#{$i})
+      z-index: $i
+  &.small
+    +mountain-size(30px, 20px)
+    margin-left: -5px
+  &.medium
+    +mountain-size(50px, 25px)
+    margin-left: -10px
+  &.big
+    +mountain-size(70px, 45px)
+    margin-left: -20px
+  &.boros
+    +mountain-size(100px, 60px)
+    margin-left: -30px
+    span
+      border-bottom-color: $boros !important
+  &.zweitag
+    span
+      border-bottom-color: $zweitag !important
+  +media(max-width 480px)
+    &:nth-child(-n+2)
+      display: none
+
+#fuck-overflow-bug-helper
+  position: relative
+  width: 100%
+  height: 1px
+
+#flag
+  width: 130px
+  height: 50px
+  border-left: 1px solid white
+  position: absolute
+  top: -48px
+  right: 186px
+  +media(max-width 480px)
+    right: 46px
+  &:hover
+    &:after
+      background: white
+      color: $boros
+  a
+    display: block
+    width: 100%
+    height: 100%
+    z-index: 1
+  &:after
+    +transition(all 0.1s ease-in)
+    content: 'I work at BOROS'
+    position: absolute
+    padding: 2px 10px
+    background: $boros
+    border-radius: 0 3px 3px 0
+    color: white
+    top: 1px
+    left: 3px
+    z-index: -1
+
+#flag-zweitag
+  width: 114px
+  height: 50px
+  border-left: 1px solid white
+  position: absolute
+  top: -49px
+  right: -113px
+  font-size: 11px
+  +media(max-width 480px)
+    right: 46px
+  &:hover
+    &:after
+      background: $zweitag
+      color: white
+  a
+    display: block
+    width: 100%
+    height: 100%
+    z-index: 1
+  &:after
+    +transition(all 0.1s ease-in)
+    content: 'I worked @zweitag'
+    position: absolute
+    padding: 2px 10px
+    background: rgba(white, 0.5)
+    border-radius: 0 3px 3px 0
+    color: $zweitag
+    top: 1px
+    left: 3px
+    z-index: -1
